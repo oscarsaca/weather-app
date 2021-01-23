@@ -2,6 +2,14 @@
 :root {
   --white: #ffffff;
   --blue: #0c2a66;
+  --gray: #c5c5c5;
+  --transition-time: 0.6s;
+  --transition-timing-function: ease;
+  --transition-delay: 0s;
+  --transition: var(--transition-time) var(--transition-timing-function)
+    var(--transition-delay);
+  --transition-delayed: var(--transition-time) var(--transition-timing-function)
+    var(--transition-time);
 }
 
 /* General */
@@ -17,8 +25,7 @@ body {
   background-color: var(--blue);
   scroll-behavior: smooth;
   font-size: 0.9375vw;
-  padding-left: 1.5em;
-  padding-right: 1.5em;
+  padding: 1.5rem;
 }
 
 .tac {
@@ -50,7 +57,8 @@ picture img {
 /* Page Title */
 .page-title {
   position: relative;
-  padding: 1.5em 0;
+  opacity: 0;
+  transition: opacity var(---transition-delayed);
 }
 
 .page-title strong {
@@ -58,11 +66,20 @@ picture img {
 }
 
 /* Headers */
+.page-title + header {
+  padding-top: 11.8%;
+}
+
 header {
   position: relative;
   max-width: 33.333em;
   margin-left: auto;
   margin-right: auto;
+  transition: padding-top var(--transition);
+}
+
+h1 {
+  transition: opacity var(--transition);
 }
 
 h1,
@@ -78,13 +95,19 @@ header h1 {
 }
 
 /* Search Input */
-h1 + input {
-  margin-top: 15%;
+h1 + form {
+  margin-top: 18.8%;
+}
+
+form {
+  position: relative;
+  transition: margin-top var(--transition);
 }
 
 input {
   width: 100%;
-  font-size: 1rem;
+  font-size: 1em;
+  font-family: var(--font);
   padding: 0.833em 1.111em 0.833em 2.5em;
   background-color: #ffffff;
   color: rgb(197, 197, 197);
@@ -93,4 +116,20 @@ input {
   border-radius: 2rem;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
     rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 0.889em;
+  top: 50%;
+  width: 1em;
+  height: 1em;
+  color: var(--gray);
+  transform: translateY(-50%);
+}
+
+.search-icon svg {
+  display: block;
+  fill: currentColor;
+  transition: color var(--transition);
 }
