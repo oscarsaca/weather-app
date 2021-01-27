@@ -3,7 +3,7 @@ import HeaderSearch from './header-search';
 
 function HeaderContainer() {
     return (
-        <header class="tac">
+        <header className='tac'>
             <HeaderTitle title="Weather App"/>
             <HeaderSearch/>
         </header>

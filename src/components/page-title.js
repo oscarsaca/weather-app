@@ -1,6 +1,6 @@
 function PageTitle ({title}) {
     return (
-        <div class="page-title">
+        <div className='page-title'>
             <strong>{title}</strong>
         </div>
     );

@@ -6,7 +6,6 @@
   --transition-time: 0.6s;
   --transition-timing-function: ease;
   --transition-delay: 0s;
-  --transition: var(--transition-time) var(--transition-timing-function) var(--transition-delay);
 }
 
 /* General */
@@ -55,12 +54,14 @@ picture img {
 .page-title {
   position: relative;
   opacity: 0;
-  transition: opacity var(--transition-time) var(--transition-timing-function) var(--transition-delay);
+  visibility: hidden;
+  transition: opacity var(--transition-time) var(--transition-timing-function) var(--transition-delay), visibility var(--transition-delay) var(--transition-timing-function) var(--transition-time);
 }
 
 .loaded .page-title {
   opacity: 1;
-  transition: opacity var(--transition-time) var(--transition-timing-function) var(--transition-time);
+  visibility: visible;
+  transition: opacity var(--transition-time) var(--transition-timing-function) var(--transition-time), visibility var(--transition-delay) var(--transition-timing-function) var(--transition-delay);
 }
 
 .page-title strong {
@@ -81,12 +82,12 @@ header {
   max-width: 33.333em;
   margin-left: auto;
   margin-right: auto;
-  transition: padding-top var(--transition);
+  transition: padding-top var(--transition-time) var(--transition-timing-function) var(--transition-delay);
 }
 
 h1 {
   opacity: 1;
-  transition: opacity var(--transition);
+  transition: opacity var(--transition-time) var(--transition-timing-function) var(--transition-delay);
 }
 
 .loaded h1 {
@@ -116,7 +117,7 @@ h1 + form {
 
 form {
   position: relative;
-  transition: margin-top var(--transition);
+  transition: margin-top var(--transition-time) var(--transition-timing-function) var(--transition-delay);
 }
 
 input {
@@ -146,7 +147,7 @@ input {
 .search-icon svg {
   display: block;
   fill: currentColor;
-  transition: color var(--transition);
+  transition: color var(--transition-time) var(--transition-timing-function) var(--transition-delay);
 }
 
 /* Weather Info Container */
@@ -157,12 +158,14 @@ input {
   margin-right: auto;
   padding-top: 2.222em;
   opacity: 0;
-  transition: opacity var(--transition-time) var(--transition-timing-function) var(--transition-delay);
+  visibility: hidden;
+  transition: opacity var(--transition-time) var(--transition-timing-function) var(--transition-delay), visibility var(--transition-delay) var(--transition-timing-function) var(--transition-time);
 }
 
 .loaded .weather-container {
   opacity: 1;
-  transition: opacity var(--transition-time) var(--transition-timing-function) var(--transition-time);
+  visibility: visible;
+  transition: opacity var(--transition-time) var(--transition-timing-function) var(--transition-time), visibility var(--transition-delay) var(--transition-timing-function) var(--transition-delay);
 }
 
 /* Weather Info Header */
