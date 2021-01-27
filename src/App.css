@@ -6,10 +6,7 @@
   --transition-time: 0.6s;
   --transition-timing-function: ease;
   --transition-delay: 0s;
-  --transition: var(--transition-time) var(--transition-timing-function)
-    var(--transition-delay);
-  --transition-delayed: var(--transition-time) var(--transition-timing-function)
-    var(--transition-time);
+  --transition: var(--transition-time) var(--transition-timing-function) var(--transition-delay);
 }
 
 /* General */
@@ -58,7 +55,12 @@ picture img {
 .page-title {
   position: relative;
   opacity: 0;
-  transition: opacity var(---transition-delayed);
+  transition: opacity var(--transition-time) var(--transition-timing-function) var(--transition-delay);
+}
+
+.loaded .page-title {
+  opacity: 1;
+  transition: opacity var(--transition-time) var(--transition-timing-function) var(--transition-time);
 }
 
 .page-title strong {
@@ -70,6 +72,10 @@ picture img {
   padding-top: 11.8%;
 }
 
+.loaded .page-title + header {
+  padding-top: 0;
+}
+
 header {
   position: relative;
   max-width: 33.333em;
@@ -79,7 +85,12 @@ header {
 }
 
 h1 {
+  opacity: 1;
   transition: opacity var(--transition);
+}
+
+.loaded h1 {
+  opacity: 0;
 }
 
 h1,
@@ -97,6 +108,10 @@ header h1 {
 /* Search Input */
 h1 + form {
   margin-top: 18.8%;
+}
+
+.loaded h1 + form {
+  margin-top: 0;
 }
 
 form {
