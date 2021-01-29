@@ -1,4 +1,5 @@
 import WeatherInfoHeader from './weather-info-header';
+import WeatherInfoNow from './weather-info-now';
 
 function WeatherInfoContainer() {
     return (
@@ -10,6 +11,7 @@ function WeatherInfoContainer() {
                 month="Janury"
                 monthDay="16th"
                 />
+            <WeatherInfoNow/>
         </div>
     );
 }
