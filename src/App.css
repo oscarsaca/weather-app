@@ -24,8 +24,20 @@ body {
   padding: 1.333rem;
 }
 
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
 .tac {
   text-align: center;
+}
+
+.frosted-bg {
+  border-radius: 0.556rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(3px);
 }
 
 /* Picture */
@@ -174,6 +186,10 @@ input {
   max-width: 83.333em;
   margin-left: auto;
   margin-right: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
   padding-top: 2.522em;
   opacity: 0;
   visibility: hidden;
@@ -192,8 +208,13 @@ input {
       var(--transition-delay);
 }
 
+.weather-container > .half {
+  width: calc(50% - 0.556em);
+}
+
 /* Weather Info Header */
 .weather-header {
+  width: 100%;
   margin-bottom: 1.111em;
 }
 
@@ -219,7 +240,6 @@ input {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: calc(50% - 1.111em);
 }
 
 .weather-now .half {
@@ -251,4 +271,9 @@ input {
 
 .weather-now-info strong + span {
   margin-top: 0.111em;
+}
+
+/* Weather Results */
+.weather-results {
+  padding: 1.944em;
 }
