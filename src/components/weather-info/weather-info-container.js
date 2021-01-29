@@ -1,5 +1,6 @@
 import WeatherInfoHeader from './weather-info-header';
 import WeatherInfoNow from './weather-info-now';
+import WeatherInfoResults from './weather-info-results';
 
 function WeatherInfoContainer() {
     return (
@@ -12,6 +13,7 @@ function WeatherInfoContainer() {
                 monthDay="16th"
                 />
             <WeatherInfoNow/>
+            <WeatherInfoResults/>
         </div>
     );
 }
