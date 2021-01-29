@@ -21,7 +21,7 @@ body {
   background-color: var(--blue);
   scroll-behavior: smooth;
   font-size: 0.9375vw;
-  padding: 1.5rem;
+  padding: 1.333rem;
 }
 
 .tac {
@@ -55,13 +55,19 @@ picture img {
   position: relative;
   opacity: 0;
   visibility: hidden;
-  transition: opacity var(--transition-time) var(--transition-timing-function) var(--transition-delay), visibility var(--transition-delay) var(--transition-timing-function) var(--transition-time);
+  transition: opacity var(--transition-time) var(--transition-timing-function)
+      var(--transition-delay),
+    visibility var(--transition-delay) var(--transition-timing-function)
+      var(--transition-time);
 }
 
 .loaded .page-title {
   opacity: 1;
   visibility: visible;
-  transition: opacity var(--transition-time) var(--transition-timing-function) var(--transition-time), visibility var(--transition-delay) var(--transition-timing-function) var(--transition-delay);
+  transition: opacity var(--transition-time) var(--transition-timing-function)
+      var(--transition-time),
+    visibility var(--transition-delay) var(--transition-timing-function)
+      var(--transition-delay);
 }
 
 .page-title strong {
@@ -82,19 +88,26 @@ header {
   max-width: 33.333em;
   margin-left: auto;
   margin-right: auto;
-  transition: padding-top var(--transition-time) var(--transition-timing-function) var(--transition-delay);
+  transition: padding-top var(--transition-time)
+    var(--transition-timing-function) var(--transition-delay);
 }
 
 h1 {
   opacity: 1;
   visibility: visible;
-  transition: opacity var(--transition-time) var(--transition-timing-function) var(--transition-time), visibility var(--transition-delay) var(--transition-timing-function) var(--transition-delay);
+  transition: opacity var(--transition-time) var(--transition-timing-function)
+      var(--transition-time),
+    visibility var(--transition-delay) var(--transition-timing-function)
+      var(--transition-delay);
 }
 
 .loaded h1 {
   opacity: 0;
   visibility: hidden;
-  transition: opacity var(--transition-time) var(--transition-timing-function) var(--transition-delay), visibility var(--transition-delay) var(--transition-timing-function) var(--transition-time);
+  transition: opacity var(--transition-time) var(--transition-timing-function)
+      var(--transition-delay),
+    visibility var(--transition-delay) var(--transition-timing-function)
+      var(--transition-time);
 }
 
 h1,
@@ -120,7 +133,8 @@ h1 + form {
 
 form {
   position: relative;
-  transition: margin-top var(--transition-time) var(--transition-timing-function) var(--transition-delay);
+  transition: margin-top var(--transition-time)
+    var(--transition-timing-function) var(--transition-delay);
 }
 
 input {
@@ -150,7 +164,8 @@ input {
 .search-icon svg {
   display: block;
   fill: currentColor;
-  transition: color var(--transition-time) var(--transition-timing-function) var(--transition-delay);
+  transition: color var(--transition-time) var(--transition-timing-function)
+    var(--transition-delay);
 }
 
 /* Weather Info Container */
@@ -159,20 +174,30 @@ input {
   max-width: 83.333em;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 2.222em;
+  padding-top: 2.522em;
   opacity: 0;
   visibility: hidden;
-  transition: opacity var(--transition-time) var(--transition-timing-function) var(--transition-delay), visibility var(--transition-delay) var(--transition-timing-function) var(--transition-time);
+  transition: opacity var(--transition-time) var(--transition-timing-function)
+      var(--transition-delay),
+    visibility var(--transition-delay) var(--transition-timing-function)
+      var(--transition-time);
 }
 
 .loaded .weather-container {
   opacity: 1;
   visibility: visible;
-  transition: opacity var(--transition-time) var(--transition-timing-function) var(--transition-time), visibility var(--transition-delay) var(--transition-timing-function) var(--transition-delay);
+  transition: opacity var(--transition-time) var(--transition-timing-function)
+      var(--transition-time),
+    visibility var(--transition-delay) var(--transition-timing-function)
+      var(--transition-delay);
 }
 
 /* Weather Info Header */
-.weather-header > *  {
+.weather-header {
+  margin-bottom: 1.111em;
+}
+
+.weather-header > * {
   display: block;
 }
 
@@ -187,4 +212,43 @@ input {
 
 .weather-header span {
   font-size: 1.444em;
+}
+
+/* Weather Now */
+.weather-now {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: calc(50% - 1.111em);
+}
+
+.weather-now .half {
+  width: calc(50% - 0.833em);
+  flex: 0 1 auto;
+}
+
+.weather-now-icon {
+  text-align: right;
+}
+
+.weather-now-icon svg {
+  width: 50%;
+}
+
+.weather-now-info * {
+  display: block;
+  line-height: 1.2;
+}
+
+.weather-now-info strong {
+  font-size: 6.111em;
+  font-weight: 400;
+}
+
+.weather-now-info span {
+  font-size: 1.444em;
+}
+
+.weather-now-info strong + span {
+  margin-top: 0.111em;
 }
