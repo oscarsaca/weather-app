@@ -1,6 +1,7 @@
 import WeatherInfoHeader from './weather-info-header';
 import WeatherInfoNow from './weather-info-now';
 import WeatherInfoResults from './weather-info-results';
+import WeatherForecast from '../weather-forecast/weather-forecast';
 
 function WeatherInfoContainer() {
     return (
@@ -14,6 +15,7 @@ function WeatherInfoContainer() {
                 />
             <WeatherInfoNow/>
             <WeatherInfoResults/>
+            <WeatherForecast forecastTitle='Forecast' />
         </div>
     );
 }

@@ -309,3 +309,90 @@ input {
 .weather-results li span {
     font-size: 1.056em;
 }
+
+/* Weather Forecast */
+.weather-forecast {
+    position: relative;
+    width: 100%;
+    max-width: 83.333em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2.222em;
+}
+
+.weather-forecast > strong {
+    font-size: 1.611em;
+    font-weight: 400;
+}
+
+.weather-forecast strong + ul {
+    margin-top: 1.333em;
+}
+
+.weather-forecast ul {
+    display: flex;
+    overflow: auto;
+    padding-bottom: 1.111em;
+}
+
+.weather-forecast ul::-webkit-scrollbar {
+    width: 0.667em;
+    height: 0.667em;
+    background: var(--blue);
+    border-radius: 0.667em;
+}
+
+.weather-forecast ul::-webkit-scrollbar-track {
+    background: none;
+}
+
+.weather-forecast ul::-webkit-scrollbar-thumb {
+    border: solid 0.111em transparent;
+    background-clip: padding-box;
+    border-radius: 0.667em;
+    background-color: var(--white);
+}
+
+.weather-forecast ul::-webkit-scrollbar-button {
+    width: 0;
+    height: 0;
+    display: none;
+}
+
+.weather-forecast ul::-webkit-scrollbar-corner {
+    background-color: transparent;
+}
+
+.weather-forecast li {
+    flex: 0 0 auto;
+    padding: 1em 0.444em;
+    width: 7.778em;
+}
+
+.weather-forecast li > * {
+    display: block;
+}
+
+.weather-forecast li > * + * {
+    margin-top: 0.25rem;
+}
+
+.weather-forecast li + li {
+    margin-left: 0.556em;
+}
+
+.weather-forecast li span {
+    font-size: 1.056em;
+}
+
+.weather-forecast li img {
+    margin-left: auto;
+    margin-right: auto;
+    width: 2.778em;
+    aspect-ratio: 1 / 1;
+}
+
+.weather-forecast li strong {
+    font-size: 1.444em;
+    font-weight: 400;
+}
