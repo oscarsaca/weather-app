@@ -1,11 +1,11 @@
 import HeaderTitle from './header-title';
 import HeaderSearch from './header-search';
 
-function HeaderContainer() {
+function HeaderContainer({ getWeather, getValueFromInput }) {
     return (
         <header className='tac'>
             <HeaderTitle title="Weather App"/>
-            <HeaderSearch/>
+            <HeaderSearch getWeather={getWeather} getValueFromInput={getValueFromInput}/>
         </header>
     );
 }
