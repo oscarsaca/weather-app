@@ -1,4 +1,4 @@
-const WeatherInfoNow = () => {
+const WeatherInfoNow = ({ temp, weatherDescription }) => {
     return (
         <div className='weather-now half'>
             <div className='weather-now-icon half'>
@@ -7,8 +7,8 @@ const WeatherInfoNow = () => {
                 </svg>
             </div>
             <div className='weather-now-info half'>
-                <strong>65°</strong>
-                <span>Overcast Clouds</span>
+                <strong>{temp}</strong>
+                <span>{weatherDescription}</span>
             </div>
         </div>
     );

@@ -3,19 +3,19 @@ import WeatherInfoNow from './weather-info-now';
 import WeatherInfoResults from './weather-info-results';
 import WeatherForecast from '../weather-forecast/weather-forecast';
 
-function WeatherInfoContainer() {
+function WeatherInfoContainer({ locationName, country, temp, weatherDescription }) {
     return (
         <div className='weather-container'>
             <WeatherInfoHeader 
-                city="Santa Clarita" 
-                country="US" 
+                city={locationName} 
+                country={country} 
                 day="Saturday"
                 month="Janury"
                 monthDay="16th"
                 />
-            <WeatherInfoNow/>
+            <WeatherInfoNow temp={temp} weatherDescription={weatherDescription}/>
             <WeatherInfoResults/>
-            <WeatherForecast forecastTitle='Forecast' />
+            <WeatherForecast forecastTitle='Forecast'/>
         </div>
     );
 }
