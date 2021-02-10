@@ -251,7 +251,8 @@ input {
     text-align: right;
 }
 
-.weather-now-icon svg {
+.weather-now .weather-now-icon svg {
+    all: unset;
     width: 50%;
 }
 
