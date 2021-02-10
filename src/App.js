@@ -14,6 +14,13 @@ function App() {
   const [country, setCountry] = useState('')
   const [temp, setTemp] = useState('')
   const [weatherDescription, setWeatherDescription] = useState('')
+  const [hasWeather, setHasWeather] = useState(false)
+
+  const body = document.body
+
+  const loadedBody = () => {
+    body.classList.add('loaded')
+  }
 
   const getValueFromInput = (event) => {
     setValue(event.target.value)
@@ -32,7 +39,9 @@ function App() {
         setLocationName(response.data.name)
         setCountry(`, ${response.data.sys.country}`)
         setTemp(`${Math.round(response.data.main.temp)}°`)
-        setWeatherDescription(response.data.weather[0].description)
+        setWeatherDescription(response.data.weather[0].main)
+        setHasWeather(true)
+        loadedBody()
       }).catch(error => {
         console.log(`Error: ${error}`)
       })
@@ -43,8 +52,14 @@ function App() {
     <React.StrictMode>
       <WeatherBg altText="Weather Background Image"/>
       <PageTitle title="Weather App"/>
-      <HeaderContainer getWeather={getWeather} getValueFromInput={getValueFromInput}/>
-      <WeatherInfoContainer locationName={locationName} country={country} temp={temp} weatherDescription={weatherDescription}/>
+      <HeaderContainer 
+        getWeather={getWeather} 
+        getValueFromInput={getValueFromInput}/>
+      { hasWeather ? <WeatherInfoContainer 
+        locationName={locationName} 
+        country={country} 
+        temp={temp} 
+        weatherDescription={weatherDescription}/> : null }
     </React.StrictMode>
   );
 }
