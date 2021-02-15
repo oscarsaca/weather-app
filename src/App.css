@@ -67,10 +67,6 @@ picture img {
     position: relative;
     opacity: 0;
     visibility: hidden;
-    transition: opacity var(--transition-time) var(--transition-timing-function)
-            var(--transition-delay),
-        visibility var(--transition-delay) var(--transition-timing-function)
-            var(--transition-time);
 }
 
 .loaded .page-title {
@@ -88,11 +84,14 @@ picture img {
 
 /* Headers */
 .page-title + header {
-    padding-top: 12.278em;
+    padding-top: 4em;
+    transform: translateY(8.278em);
 }
 
 .loaded .page-title + header {
-    padding-top: 4em;
+    transform: translateY(0);
+    transition: transform var(--transition-time)
+        var(--transition-timing-function) var(--transition-delay);
 }
 
 header {
@@ -100,17 +99,11 @@ header {
     max-width: 33.333em;
     margin-left: auto;
     margin-right: auto;
-    transition: padding-top var(--transition-time)
-        var(--transition-timing-function) var(--transition-delay);
 }
 
 h1 {
     opacity: 1;
     visibility: visible;
-    transition: opacity var(--transition-time) var(--transition-timing-function)
-            var(--transition-time),
-        visibility var(--transition-delay) var(--transition-timing-function)
-            var(--transition-delay);
 }
 
 .loaded h1 {
@@ -136,17 +129,17 @@ header h1 {
 
 /* Search Input */
 h1 + form {
-    margin-top: 6.222em;
+    transform: translateY(6.222em);
 }
 
 .loaded h1 + form {
-    margin-top: 0;
+    transform: translateY(0);
+    transition: transform var(--transition-time)
+        var(--transition-timing-function) var(--transition-delay);
 }
 
 form {
     position: relative;
-    transition: margin-top var(--transition-time)
-        var(--transition-timing-function) var(--transition-delay);
 }
 
 input {
@@ -193,17 +186,13 @@ input {
     padding-top: 2.522em;
     opacity: 0;
     visibility: hidden;
-    transition: opacity var(--transition-time) var(--transition-timing-function)
-            var(--transition-delay),
-        visibility var(--transition-delay) var(--transition-timing-function)
-            var(--transition-time);
 }
 
 .loaded .weather-container {
     opacity: 1;
     visibility: visible;
     transition: opacity var(--transition-time) var(--transition-timing-function)
-            var(--transition-time),
+            var(--transition-delay),
         visibility var(--transition-delay) var(--transition-timing-function)
             var(--transition-delay);
 }
