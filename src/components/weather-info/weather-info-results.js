@@ -1,30 +1,37 @@
-function WeatherInfoResults () {
+function WeatherInfoResults ({
+    feelsLike,
+    humidity,
+    wind,
+    high,
+    low,  
+    pressure
+}) {
     return(
         <div className='weather-results frosted-bg half'>
             <ul>
                 <li>
-                    <strong>80°</strong>
+                    <strong>{high}</strong>
                     <span>High</span>
                 </li>
                 <li>
-                    <strong>2.07mph</strong>
+                    <strong>{feelsLike}</strong>
+                    <span>Feels Like</span>
+                </li>
+                <li>
+                    <strong>{wind}</strong>
                     <span>Wind</span>
                 </li>
                 <li>
-                    <strong>6:53</strong>
-                    <span>Sunrise</span>
-                </li>
-                <li>
-                    <strong>70°</strong>
+                    <strong>{low}</strong>
                     <span>Low</span>
                 </li>
                 <li>
-                    <strong>93%</strong>
-                    <span>Rain</span>
+                    <strong>{humidity}</strong>
+                    <span>Humidity</span>
                 </li>
                 <li>
-                    <strong>5:20</strong>
-                    <span>Sunset</span>
+                    <strong>{pressure}</strong>
+                    <span>Pressure</span>
                 </li>
             </ul>
         </div>

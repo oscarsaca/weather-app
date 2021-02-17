@@ -1,8 +1,8 @@
-function WeatherInfoHeader({city, country, day, month, monthDay}) {
+function WeatherInfoHeader({city, country, theDate}) {
     return (
         <div className='weather-header'>
             <strong>{city}{country}</strong>
-            <span>{day}, {month} {monthDay}</span>
+            <span>{theDate}</span>
         </div>
     );
 }
