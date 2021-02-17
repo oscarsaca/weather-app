@@ -3,18 +3,35 @@ import WeatherInfoNow from './weather-info-now';
 import WeatherInfoResults from './weather-info-results';
 import WeatherForecast from '../weather-forecast/weather-forecast';
 
-function WeatherInfoContainer({ locationName, country, temp, weatherDescription }) {
+function WeatherInfoContainer({ 
+    locationName, 
+    country, 
+    temp, 
+    weatherDescription, 
+    theDate,  
+    feelsLike,
+    humidity,
+    wind,
+    high,
+    low,  
+    pressure
+}) {
     return (
         <div className='weather-container'>
             <WeatherInfoHeader 
                 city={locationName} 
                 country={country} 
-                day="Saturday"
-                month="Janury"
-                monthDay="16th"
+                theDate={theDate}
                 />
             <WeatherInfoNow temp={temp} weatherDescription={weatherDescription}/>
-            <WeatherInfoResults/>
+            <WeatherInfoResults
+                feelsLike={feelsLike}
+                humidity={humidity}
+                wind={wind}
+                high={high}
+                low={low}
+                pressure={pressure}            
+            />
             <WeatherForecast forecastTitle='Forecast'/>
         </div>
     );

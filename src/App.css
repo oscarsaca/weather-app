@@ -20,7 +20,7 @@ body {
     color: var(--white);
     background-color: var(--blue);
     scroll-behavior: smooth;
-    font-size: 0.9375vw;
+    font-size: clamp(10px, 0.9375vw, 18px);
     padding: 1.333rem;
 }
 
