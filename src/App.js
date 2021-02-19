@@ -119,7 +119,7 @@ function App() {
         setCountry(`, ${response.data.sys.country}`)
         setTemp(`${Math.round(response.data.main.temp)}°`)
         setWeatherDescription(response.data.weather[0].main)
-        setfeelsLike(Math.round(response.data.main.feels_like))
+        setfeelsLike(`${Math.round(response.data.main.feels_like)}°`)
         setHumidity(`${response.data.main.humidity}%`)
         setHigh(`${response.data.main.temp_max}°`)
         setLow(`${response.data.main.temp_min}°`)
