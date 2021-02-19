@@ -1,11 +1,11 @@
 import React from 'react';
 import WeatherForecastList from './weather-forecast-list';
 
-const WeatherForecast = ({ forecastTitle }) => {
+const WeatherForecast = ({ forecastTitle, forecastList }) => {
     return (
         <div className='weather-forecast'>
             <strong>{forecastTitle}</strong>
-            <WeatherForecastList />
+            <WeatherForecastList forecastList={forecastList} />
         </div>
     );
 }

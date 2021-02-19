@@ -9,7 +9,10 @@ import Axios from 'axios';
 
 function App() {
 
+  // Value from input
   const [value, setValue] = useState('')
+
+  // Weather states
   const [locationName, setLocationName] = useState('')
   const [country, setCountry] = useState('')
   const [temp, setTemp] = useState('')
@@ -20,15 +23,16 @@ function App() {
   const [low, setLow] = useState('')
   const [wind, setWind] = useState('')
   const [pressure, setPressure] = useState('')
-
-  const [theDate, setTheDate] = useState('')
-
   const [hasWeather, setHasWeather] = useState(false)
   
-  const body = document.body
+  // Forecast states
+  const [forecastList, setForecastList] = useState([])
+
+  // Set date
+  const [theDate, setTheDate] = useState('')
 
   const loadedBody = () => {
-    body.classList.add('loaded')
+    document.body.classList.add('loaded')
   }
 
   const getValueFromInput = (event) => {
@@ -111,27 +115,34 @@ function App() {
     const VALUE = value
     const KEY = 'a1a5b6654de7c4687ddd592a0d166af5'
     const WEATHER_URL = `https://api.openweathermap.org/data/2.5/weather?q=${VALUE}&APPID=${KEY}&units=imperial`
+    const FORECAST_URL = `https://api.openweathermap.org/data/2.5/forecast?q=${VALUE}&APPID=${KEY}&units=imperial`
 
-    Axios.get(WEATHER_URL)
-      .then((response) => {
-        console.log(response.data)
-        setLocationName(response.data.name)
-        setCountry(`, ${response.data.sys.country}`)
-        setTemp(`${Math.round(response.data.main.temp)}°`)
-        setWeatherDescription(response.data.weather[0].main)
-        setfeelsLike(`${Math.round(response.data.main.feels_like)}°`)
-        setHumidity(`${response.data.main.humidity}%`)
-        setHigh(`${response.data.main.temp_max}°`)
-        setLow(`${response.data.main.temp_min}°`)
-        setWind(`${Math.round(response.data.wind.speed)}mph`)
-        setPressure(Math.round(response.data.main.pressure))
+    const REQUEST_WEATHER = Axios.get(WEATHER_URL)
+    const REQUEST_FORECAST = Axios.get(FORECAST_URL)
+
+    Axios.all([REQUEST_WEATHER, REQUEST_FORECAST]).then(Axios.spread((...responses) => {
+        const weatherResponse = responses[0]
+        const forecastResponse = responses[1]
+
+        setLocationName(weatherResponse.data.name)
+        setCountry(`, ${weatherResponse.data.sys.country}`)
+        setTemp(`${Math.round(weatherResponse.data.main.temp)}°`)
+        setWeatherDescription(weatherResponse.data.weather[0].main)
+        setfeelsLike(`${Math.round(weatherResponse.data.main.feels_like)}°`)
+        setHumidity(`${weatherResponse.data.main.humidity}%`)
+        setHigh(`${weatherResponse.data.main.temp_max}°`)
+        setLow(`${weatherResponse.data.main.temp_min}°`)
+        setWind(`${Math.round(weatherResponse.data.wind.speed)}mph`)
+        setPressure(Math.round(weatherResponse.data.main.pressure))
         setHasWeather(true)
+
+        setForecastList(forecastResponse.data.list)
+
         loadedBody()
         getTheDate()
-      }).catch(error => {
+      })).catch(error => {
         console.log(`Error: ${error}`)
       })
-
   }
 
   return (
@@ -154,7 +165,9 @@ function App() {
             high={high}
             low={low}
             pressure={pressure}
-            weatherDescription={weatherDescription}/> 
+            weatherDescription={weatherDescription}
+            forecastList={forecastList}
+            /> 
         : null 
         }
     </React.StrictMode>
