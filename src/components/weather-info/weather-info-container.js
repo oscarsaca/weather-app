@@ -14,7 +14,8 @@ function WeatherInfoContainer({
     wind,
     high,
     low,  
-    pressure
+    pressure,
+    forecastList
 }) {
     return (
         <div className='weather-container'>
@@ -32,7 +33,7 @@ function WeatherInfoContainer({
                 low={low}
                 pressure={pressure}            
             />
-            <WeatherForecast forecastTitle='Forecast'/>
+            <WeatherForecast forecastList={forecastList} forecastTitle='Forecast'/>
         </div>
     );
 }

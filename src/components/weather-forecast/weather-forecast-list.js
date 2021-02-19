@@ -1,7 +1,7 @@
 import React from 'react';
 import forecastPlaceholder from '../../images/forecast-placeholder.png'
 
-const WeatherForecastList = () => {
+const WeatherForecastList = ({ forecastList }) => {
     return (
         <ul>
             <li className='frosted-bg tac'>
