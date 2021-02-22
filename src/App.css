@@ -195,7 +195,6 @@ input {
     justify-content: space-between;
     align-items: center;
     padding-top: 2.522em;
-    opacity: 0;
     transform: translateY(2em);
 }
 
@@ -417,6 +416,7 @@ input {
 
 .no-result strong {
     display: block;
+    font-weight: 400;
 }
 
 .no-result svg + strong {
