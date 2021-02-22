@@ -195,7 +195,6 @@ input {
     justify-content: space-between;
     align-items: center;
     padding-top: 2.522em;
-    opacity: 0;
     transform: translateY(2em);
 }
 
@@ -392,4 +391,60 @@ input {
 .weather-forecast li strong {
     font-size: 1.444em;
     font-weight: 400;
+}
+
+/* No Result */
+.no-result {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.111em;
+    max-width: 33.333em;
+    margin: 2em auto 0;
+    opacity: 0;
+    transform: translateY(2em);
+}
+
+.loaded .no-result {
+    animation: loadingIn var(--transition-time)
+        var(--transition-timing-function) var(--transition-time) forwards;
+}
+
+.no-result svg {
+    font-size: 2.222em;
+}
+
+.no-result strong {
+    display: block;
+    font-weight: 400;
+}
+
+.no-result svg + strong {
+    margin-left: 1em;
+}
+
+/* Responsive */
+@media screen and (max-width: 800px) {
+    .weather-header {
+        text-align: center;
+        margin-bottom: 0;
+    }
+
+    .weather-container > .half {
+        width: 100%;
+    }
+
+    .weather-container > * + * {
+        margin-top: 2em;
+    }
+
+    .weather-now .weather-now-icon svg {
+        max-width: 10em;
+    }
+
+    .weather-results {
+        max-width: 50em;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }

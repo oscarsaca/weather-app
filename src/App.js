@@ -6,6 +6,7 @@ import WeatherBg from './components/weather-bg';
 import PageTitle from './components/page-title';
 import WeatherInfoContainer from './components/weather-info/weather-info-container';
 import Axios from 'axios';
+import NoResult from './components/no-result/no-result';
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
   const [wind, setWind] = useState('')
   const [pressure, setPressure] = useState('')
   const [hasWeather, setHasWeather] = useState(false)
+  const [hasResult, SetHasResult] = useState(false)
   
   // Forecast states
   const [forecastList, setForecastList] = useState([])
@@ -141,6 +143,8 @@ function App() {
         loadedBody()
         getTheDate()
       })).catch(error => {
+        SetHasResult(true)
+        loadedBody()
         console.log(`Error: ${error}`)
       })
   }
@@ -152,24 +156,22 @@ function App() {
       <HeaderContainer 
         getWeather={getWeather} 
         getValueFromInput={getValueFromInput}/>
-        { 
-        hasWeather ? 
-          <WeatherInfoContainer 
-            locationName={locationName} 
-            country={country} 
-            temp={temp} 
-            theDate={theDate}
-            feelsLike={feelsLike}
-            humidity={humidity}
-            wind={wind}
-            high={high}
-            low={low}
-            pressure={pressure}
-            weatherDescription={weatherDescription}
-            forecastList={forecastList}
-            /> 
-        : null 
-        }
+      { hasWeather ? <WeatherInfoContainer 
+          locationName={locationName} 
+          country={country} 
+          temp={temp} 
+          theDate={theDate}
+          feelsLike={feelsLike}
+          humidity={humidity}
+          wind={wind}
+          high={high}
+          low={low}
+          pressure={pressure}
+          weatherDescription={weatherDescription}
+          forecastList={forecastList}
+          /> 
+      : null }
+      { hasResult ? <NoResult /> : null}
     </React.StrictMode>
   );
 }
