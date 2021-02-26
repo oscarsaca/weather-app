@@ -136,6 +136,7 @@ function App() {
         setLow(`${weatherResponse.data.main.temp_min}°`)
         setWind(`${Math.round(weatherResponse.data.wind.speed)}mph`)
         setPressure(Math.round(weatherResponse.data.main.pressure))
+        SetHasResult(false)
         setHasWeather(true)
 
         setForecastList(forecastResponse.data.list)
